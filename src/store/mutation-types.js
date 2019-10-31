@@ -1,0 +1,5 @@
+export const SOCKET_TEST = 'SOCKET_TEST'
+export const CHANGE_CONNECT_STATUS = 'CHANGE_CONNECT_STATUS'
+export const ADD_MESSAGE = 'ADD_MESSAGE'
+export const ADD_UNREAD = 'ADD_UNREAD'
+export const SET_USERS = 'SET_USERS'
