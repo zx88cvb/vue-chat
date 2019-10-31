@@ -3,16 +3,18 @@
     <input type="text" v-model="inputText" />
     <button @click="handleSendClick">submit</button>
     <div class="messages">
-      <ul class="item" v-for="(item, index) of messageList" :key="index">
-        <li class="username">{{user.username}}:</li>
-        <li class="tips">{{item}}</li>
+      <ul class="item">
+        <li v-for="(item, index) of messageList" :key="index">
+          <span class="username">{{item.senderName}}:</span>
+          <span class="tips">{{item.msg}}</span>
+        </li>
       </ul>
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters  } from 'vuex'
+import { mapGetters } from 'vuex'
 export default {
   name: 'chat',
   data() {
@@ -42,7 +44,8 @@ export default {
     },
     websocketonmessage(e){ //数据接收
       const redata = JSON.parse(e.data)
-      this.messageList.push(redata.chatMsg.msg)
+      console.log(redata)
+      this.messageList.push(redata.chatMsg)
     },
     websocketsend(data){//数据发送
       this.websock.send(data)
@@ -55,6 +58,7 @@ export default {
         action: 2,
         chatMsg: {
           senderId: '1',
+          senderName: this.user.username,
           receiverId: '1',
           msg: this.inputText,
           msgId: 'aa',
@@ -73,14 +77,15 @@ export default {
 
 <style scope>
 .messages .item{
+  height: 500px;
   list-style: none;
   line-height: 1.4;
+  overflow-y: scroll;
 }
 
 ul li {
   font-size: 12px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin: 0 5px 0 0;
-  display: inline-block;
 }
 </style>
