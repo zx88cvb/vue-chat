@@ -39,9 +39,7 @@ export default {
   },
   methods: {
     handleSendClick() {
-      if (this.inputText != '') {
-        this.$emit('handleSendClick', this.inputText)
-      }
+      this.$emit('handleSendClick', this.inputText)
       this.inputText = null
     }
   },
@@ -65,6 +63,7 @@ export default {
   .message-content .view {
     height: 38rem;
     /* background: darkseagreen; */
+    padding-bottom: 2rem;
   }
 
   .view .view-content {
