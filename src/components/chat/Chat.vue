@@ -57,7 +57,6 @@ export default {
       console.log('断开连接',e)
     },
     handleSendClick(inputText) {
-      console.log(inputText)
       let message = {
         action: 2,
         chatMsg: {

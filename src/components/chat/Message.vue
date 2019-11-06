@@ -1,7 +1,7 @@
 <template>
   <div class="message-content">
     <div class="view">
-      <div class="view-content">
+      <div class="view-content" ref="messages">
         <div class="item " v-for="(item, index) of messageList" :key="index" :class="[user.id === item.senderId? 'myself': 'other']">
             <div class="user">
             <span class="username">{{item.senderName}}</span>
@@ -37,13 +37,20 @@ export default {
       inputText: null
     }
   },
-  created() {
-    console.log(this.user)
-  },
   methods: {
     handleSendClick() {
-      this.$emit('handleSendClick', this.inputText)
+      if (this.inputText != '') {
+        this.$emit('handleSendClick', this.inputText)
+      }
       this.inputText = null
+    }
+  },
+  watch: {
+    messageList () {
+      let messages = this.$refs.messages
+      this.$nextTick(() => {
+        messages.scrollTop = messages.scrollHeight + 100
+      })
     }
   }
 }

@@ -44,7 +44,6 @@ export default {
     },
     websocketonmessage(e){ //数据接收
       const redata = JSON.parse(e.data)
-      console.log(redata)
       this.messageList.push(redata.chatMsg)
     },
     websocketsend(data){//数据发送
@@ -71,7 +70,7 @@ export default {
     ...mapGetters([
       'user'
     ])
-  },
+  }
 }
 </script>
 
