@@ -1,5 +1,6 @@
 <template>
   <div class="login">
+    <img alt="Vue logo" src="../assets/logo.png">
     <input type="text" class="username" v-model="user.username" placeholder="请输入用户名" />
     <button @click="handleUserClick">确定</button>
   </div>

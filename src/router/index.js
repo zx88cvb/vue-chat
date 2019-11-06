@@ -6,7 +6,7 @@ Vue.use(Router)
 
 // 新闻详情页
 const chat = (resolve) => {
-  import('../components/Chat').then((module) => {
+  import('../components/chat/Chat').then((module) => {
     resolve(module)
   })
 }
