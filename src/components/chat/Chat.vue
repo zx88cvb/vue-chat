@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="chat">
     <div class="chat-body">
       <chat-head></chat-head>
       <div class="chat-content">
@@ -82,7 +82,7 @@ export default {
   * {
     font-size: 14px;
   }
-  .app {
+  .chat {
     min-height: 48rem;
   }
   .chat-body {
